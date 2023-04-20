@@ -10,7 +10,7 @@ const wordCountNum = document.getElementById('wordCountNum');
 const charCount = document.getElementById('charCount');
 const charCountNum = document.getElementById('charCountNum');
 const pdfFileLabel = document.querySelector('label[for="pdfFile"]');
-const customFileUpload = document.querySelector('.custom-file-upload');
+const customFileUpload = document.querySelector('.fileUpload');
 const alertBanner = document.getElementById('alertBanner');
 
 let sanitizedFileName = 'extracted-text';
