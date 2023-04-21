@@ -61,15 +61,15 @@ a, a:active, a:visited, a:hover {
 }
 
 #footer {
+    margin: 0 auto;
     font-size: 12px;
-    width: 100%;
     padding: 10px;
     text-align: center;
   }
 
 #countWrap {
+    margin: 0 auto;
     font-family: "IBM Plex Mono", Monaco, "Courier New", Courier, monospace;
-    width: 100%;
     text-align: center;
 }
 
@@ -87,7 +87,8 @@ a, a:active, a:visited, a:hover {
     text-align: center;
     display: block;
     margin: 10px auto;
-    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 #wordCountNum, #charCountNum {
@@ -115,8 +116,8 @@ textarea {
     font-family: "IBM Plex Mono", Monaco, "Courier New", Courier, monospace;
     width: 100%;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     resize: none;
 }
 
@@ -140,8 +141,8 @@ label {
     margin: 0 auto;
     width: 100%;
     -webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     resize: none;
 }
 
