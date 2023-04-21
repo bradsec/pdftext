@@ -67,12 +67,8 @@ a, a:active, a:visited, a:hover {
     text-align: center;
   }
 
-input[type="file"], textarea, button {
-    display: block;
-    margin-bottom: 10px;
-}
-
 #countWrap {
+    font-family: "IBM Plex Mono", Monaco, "Courier New", Courier, monospace;
     width: 100%;
     text-align: center;
 }
@@ -87,7 +83,6 @@ input[type="file"], textarea, button {
 #fileName {
     font-family: "IBM Plex Mono", Monaco, "Courier New", Courier, monospace;
     color: #202020;
-    font-weight: bold;
     visibility: hidden;
     text-align: center;
     display: block;
@@ -96,8 +91,6 @@ input[type="file"], textarea, button {
 }
 
 #wordCountNum, #charCountNum {
-    font-family: "IBM Plex Mono", Monaco, "Courier New", Courier, monospace;
-    font-weight: bold;
     color: #202020;
 }
 
@@ -133,7 +126,7 @@ textarea::selection {
 
 textarea:focus {
     outline: none;
-  }
+}
 
 .hidden {
     display: none;
@@ -143,44 +136,60 @@ input[type="file"] {
     display: none;
 }
 
+label {
+    margin: 0 auto;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    resize: none;
+}
+
 .fileUpload {
     width: 100%;
-    display: inline-block;
-    padding: 12px 20px;
+    padding: 15px 0;
     font-size: 16px;
+    line-height: 1em;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
+    border: 2px solid #358dd1;
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 10px;
-    box-sizing: border-box;
+    display: inline-block;
 }
 
 button {
     width: 100%;
-    padding: 12px 20px;
+    padding: 15px 0;
     font-size: 16px;
+    line-height: 1em;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    border: none;
+    border: 2px solid #358dd1;
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 10px;
-    box-sizing: border-box;
+    display: inline-block;
 }
 
 #downloadButton:disabled, #copyButton:disabled {
     background-color: #cccccc;
+    border: 2px solid #cccccc;
     color: #999999;
-    border-color: #999999;
     cursor: not-allowed;
 }
 
-#downloadButton, #copyButton, .fileUpload {
+#downloadButton, #copyButton {
     background-color: #358dd1;
-    color: white;
+    color: #ffffff;
+}
+
+.fileUpload {
+    background-color: #ffffff;
+    color: #358dd1;
 }
 
 /* Alert banners */
