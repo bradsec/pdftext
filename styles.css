@@ -23,17 +23,17 @@
     --main-background-color: #ffffff;
     --branding-color: #222222;
     --padding: 15px;
-    --font-family: Helvetica, Arial, sans-serif;
+    --font-family: Arial, Helvetica, sans-serif;
     --font-color: var(--color-gray-4);
     --font-size: 1em;
     --line-height: 1.4em;
-    --code-font-family: "Courier New", Courier, monospace;
-    --code-font-color: var(--color-gray-6);
+    --code-font-family: "Lucida Console", Courier, monospace;
+    --code-font-color: var(--color-gray-5);
     --code-background-color: var(--color-gray-1);
     --code-font-size: 1em;
     --link-font-color: var(--color-gray-5);
     --link-hover-color: var(--branding-color);
-    --heading-font-family: Helvetica, Arial, sans-serif;
+    --heading-font-family: Arial, Helvetica, sans-serif;
     --heading-color: var(--color-gray-6);
     --heading-line-height: 1.2em;
     --mobile-menu-background-color: rgba(255, 255, 255, 0.5);
@@ -44,7 +44,7 @@
     --background-blur-contrast: 80%;
     --mobile-menu-link-hover-color: var(--background-color);
     --mobile-menu-link-background-hover-color: var(--font-color);
-    --form-input-text-color: var(--color-gray-4);
+    --form-input-font-color: var(--color-gray-5);
     --form-input-border: 1px solid var(--color-gray-3);
     --form-input-background-color: var(--color-gray-1);
     --form-placeholder-color: var(--font-color);
@@ -72,7 +72,7 @@
     --code-font-color: var(--color-gray-3);
     --code-background-color: var(--color-gray-7);
     --form-input-border: none;
-    --form-input-text-color: var(--color-gray-5);
+    --form-input-font-color: var(--color-gray-5);
     --form-input-background-color: var(--color-gray-7);
     --form-placeholder-color: var(--font-color);
 }
@@ -129,7 +129,7 @@ pre {
     padding: var(--padding);
     overflow: auto;
     line-height: 1.45;
-    color: var(--codefont-color);
+    color: var(--code-font-color);
     background-color: var(--code-background-color);
     border-radius: 6px;
 }
@@ -346,7 +346,7 @@ textarea {
     font-family: var(--font-family);
     font-size: var(--font-size);
     line-height: var(--line-height);
-    color: var(--form-input-text-color);
+    color: var(--form-input-font-color);
     display: block;
     width: 100%;
     background-color: var(--form-input-background-color);
@@ -375,7 +375,7 @@ select {
     font-family: var(--font-family);
     font-size: var(--font-size);
     line-height: var(--line-height);
-    color: var(--form-input-text-color);
+    color: var(--form-input-font-color);
     width: 100%;
     padding: .5em;
     background-color: var(--form-input-background-color);
@@ -648,7 +648,7 @@ button[disabled], button[disabled]:hover {
 }
 
 #fileName {
-    font-family: Monaco, "Courier New", Courier, monospace;
+    font-family: var(--code-font-family);
     font-weight: 600;
     visibility: hidden;
     text-align: center;
@@ -659,6 +659,5 @@ button[disabled], button[disabled]:hover {
 }
 
 textarea {
-    font-family: Monaco, "Courier New", Courier, monospace;
-    font-size: 0.8em;
+    font-family: var(--code-font-family);
 }
