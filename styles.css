@@ -398,7 +398,7 @@ label {
     text-align: center;
     display: inline-block;
     margin: 10px 5px 10px 0;
-    background-color: none;
+    background-color: var(--primary-button-color);
     color: var(--color-white);
     padding: 18px;
     border: none;
@@ -408,7 +408,7 @@ label {
 }
 
 .fileUpload {
-    background-color: var(--main-background-color);
+    background: none;
     color: var(--primary-button-color);
     padding: 16px;
     border: 2px solid var(--primary-button-color);
