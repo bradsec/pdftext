@@ -44,7 +44,7 @@
     --background-blur-contrast: 80%;
     --mobile-menu-link-hover-color: var(--background-color);
     --mobile-menu-link-background-hover-color: var(--font-color);
-    --form-input-text-color: var(--color-gray-5);
+    --form-input-text-color: var(--color-gray-4);
     --form-input-border: 1px solid var(--color-gray-3);
     --form-input-background-color: var(--color-gray-1);
     --form-placeholder-color: var(--font-color);
@@ -393,14 +393,14 @@ label {
     margin: 10px 0;
 }
 
-.btn-primary, .fileUpload, button, button[type="submit"] {
+.fileUpload, .btn-primary, button, button[type="submit"] {
     font-weight: 600;
     text-align: center;
     display: inline-block;
     margin: 10px 5px 10px 0;
     background-color: var(--primary-button-color);
     color: var(--color-white);
-    padding: 1em 1.5em;
+    padding: 18px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -408,14 +408,21 @@ label {
 }
 
 .fileUpload {
+    background-color: var(--main-background-color);
+    color: var(--primary-button-color);
+    padding: 16px;
+    border: 2px solid var(--primary-button-color);
+}
+
+.fileUpload {
     padding: 0.88em 1.5em;
 }
 
-.fileUpload:hover, button:hover, button[type="submit"]:hover {
+button:hover, button[type="submit"]:hover {
     background-color: var(--primary-button-color-hover);
 }
 
-.fileUpload:active, button:active, button[type="submit"]:active {
+button:active, button[type="submit"]:active {
     background-color: var(--primary-button-color-active);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
