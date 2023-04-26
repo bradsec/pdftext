@@ -72,7 +72,7 @@
     --code-font-color: var(--color-gray-3);
     --code-background-color: var(--color-gray-7);
     --form-input-border: none;
-    --form-input-font-color: var(--color-gray-5);
+    --form-input-font-color: var(--color-gray-3);
     --form-input-background-color: var(--color-gray-7);
     --form-placeholder-color: var(--font-color);
 }
@@ -398,7 +398,7 @@ label {
     text-align: center;
     display: inline-block;
     margin: 10px 5px 10px 0;
-    background-color: var(--primary-button-color);
+    background-color: none;
     color: var(--color-white);
     padding: 18px;
     border: none;
