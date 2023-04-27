@@ -46,9 +46,14 @@ function showAlertBanner(message, type) {
 
 
 function sanitizeFileName(filename) {
-    const nameWithoutExtension = filename.split('.').slice(0, -1).join('.');
-    const sanitized = nameWithoutExtension.replace(/\s+/g, '-').toLowerCase();
-    return sanitized;
+  const nameWithoutExtension = filename.split('.').slice(0, -1).join('.');
+  const sanitized = nameWithoutExtension
+    .replace(/[\s-]+/g, '-')
+    .replace(/_/g, '-')
+    .replace(/\.+/g, '.')
+    .replace(/(-)+/g, '$1')
+    .toLowerCase();
+  return sanitized + '.' + filename.split('.').pop();
 }
 
 pdfFile.addEventListener('change', async (event) => {
