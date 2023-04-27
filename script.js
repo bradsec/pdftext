@@ -20,14 +20,13 @@ downloadButton.disabled = true;
 copyButton.disabled = true;
 
 function showAlertBanner(message, type) {
+    const alertBanner = document.getElementById('alert-banner');
     alertBanner.textContent = message;
     alertBanner.classList.remove('hidden');
     alertBanner.classList.add(type, 'show');
     setTimeout(() => {
         alertBanner.classList.remove(type, 'show');
-        setTimeout(() => {
-            alertBanner.classList.add('hidden');
-        }, 300);
+        alertBanner.classList.add('hidden');
     }, 2000);
 }
 
