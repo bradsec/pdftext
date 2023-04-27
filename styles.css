@@ -1,9 +1,10 @@
 :root {
     /* Standard colors used */
-    --color-blue: #007bff;
-    --color-red: #d35b51;
-    --color-green: #70b568;
-    --color-orange: #ea8137;
+    --color-blue: #196bc3;
+    --color-cyan: #1fb2d3;
+    --color-red: #b7463c;
+    --color-green: #529a4a;
+    --color-orange: #d76f24;
     --color-white: #ffffff;
     --color-black: #000000;
     --color-gray-0: #fafafa;
@@ -19,7 +20,7 @@
     --primary-button-color-hover: #0056b3; 
     --primary-button-color-active: #004085;
     /* Main elements */
-    --background-color: #fafafa;
+    --background-color: #f0f0f0;
     --main-background-color: #ffffff;
     --branding-color: #222222;
     --padding: 15px;
@@ -36,18 +37,22 @@
     --heading-font-family: Arial, Helvetica, sans-serif;
     --heading-color: var(--color-gray-6);
     --heading-line-height: 1.2em;
-    --mobile-menu-background-color: rgba(255, 255, 255, 0.5);
-    --menu-link-color: var(--font-color);
-    --menu-link-hover-color: var(--branding-color);
-    --mobile-menu-link-color: var(--heading-color);
+    --alert-font-size: 1.2em;
+    --info-alert-background-color: var(--color-cyan);
+    --danger-alert-background-color: var(--color-red);
+    --success-alert-background-color: var(--color-green);
+    --warning-alert-background-color: var(--color-orange);
+    --menu-link-color: var(--branding-color);
+    --menu-link-hover-color: var(--font-color);
+    --mobile-menu-background-color: var(--color-gray-0);
     --background-blur: 8px;
-    --background-blur-contrast: 80%;
-    --mobile-menu-link-hover-color: var(--background-color);
-    --mobile-menu-link-background-hover-color: var(--font-color);
+    --background-blur-contrast: 50%;
+    --mobile-menu-link-font-size: 1.2em;
     --form-input-font-color: var(--color-gray-5);
     --form-input-border: 1px solid var(--color-gray-3);
     --form-input-background-color: var(--color-gray-1);
     --form-placeholder-color: var(--font-color);
+    --menu-shadow: 0 5px 30px rgba(34, 34, 34, 0.1), 0 0 1px rgba(34, 34, 34, 0.4), 0 1px 2px rgba(34, 34, 34, 0.15);
     /* Change debug outlines to 0px when not in use */
     --debug-all-outline: 0px solid red;
     --debug-layout-outline: 0px solid rgb(0, 0, 255);
@@ -61,14 +66,11 @@
     --link-hover-color: var(--branding-color);
     --heading-color: #CCCCCC;
     --heading-line-height: 1.2em;
-    --mobile-menu-background-color: rgba(32, 32, 32, 0.5);
-    --menu-link-color: var(--font-color);
-    --menu-link-hover-color: var(--branding-color);
-    --mobile-menu-link-color: var(--heading-color);
+    --menu-link-color: var(--branding-color);
+    --menu-link-hover-color: var(--font-color);
+    --mobile-menu-background-color: var(--color-gray-6);
     --background-blur: 8px;
     --background-blur-contrast: 80%;
-    --mobile-menu-link-hover-color: var(--background-color);
-    --mobile-menu-link-background-hover-color: var(--font-color);
     --code-font-color: var(--color-gray-3);
     --code-background-color: var(--color-gray-7);
     --form-input-border: none;
@@ -102,7 +104,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: background-color 1s ease, color 2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -170,17 +171,21 @@ a:hover {
 }
 
 .wrapper {
-    position: relative;
+    position: absolute;
+    left: 0;
+    top: 0;
     min-height: 100vh;
+    width: 100%;
 }
 
 #header, #main, #footer {
     padding: var(--padding);
-    width: 100%;
     outline: var(--debug-layout-outline);
+    width: 100%;
 }
 
 #header {
+    z-index: 299;
     display: inline-block;
 }
 
@@ -189,7 +194,7 @@ a:hover {
     margin: 0 auto;
     margin-bottom: 120px;
     max-width: 1200px;
-    transition: background-color 1s ease, color 2s ease;
+    border-radius: 6px;
 }
 
 #footer {
@@ -203,7 +208,7 @@ a:hover {
 #branding {
     display: inline-block;
     width: 180px;
-    padding: 15px;
+    padding-top: 5px;
 }
 
 
@@ -246,18 +251,19 @@ ol {
     align-items: center;
     display: flex;
     max-width: 1200px;
+    overflow: hidden;
 }
 
 .navbar li a {
     color: var(--menu-link-color);
     display: flex;
     text-decoration: none;
+    padding: 5px 15px 5px 15px;
 }
 
 .nav-links li a:hover {
     color: var(--menu-link-hover-color);
     background: none;
-    font-size: calc(var(--font-size) + 2px);
 }
 
 .navbar ul li {
@@ -265,15 +271,12 @@ ol {
     list-style-type: none;
 }
 
-.nav-links a {
-    padding: 10px 20px;
-}
-
 .navbar .nav-links ul {
     display: flex;
 }
 
 .menu-trigger {
+    z-index: 199;
     display: none;
     position: absolute;
     right: 25px;
@@ -393,7 +396,7 @@ label {
     margin: 10px 0;
 }
 
-.fileUpload, .btn-primary, button, button[type="submit"] {
+.btn-primary, button, button[type="submit"] {
     font-weight: 600;
     text-align: center;
     display: inline-block;
@@ -404,18 +407,28 @@ label {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1em;
 }
 
+
 .fileUpload {
-    background: none;
-    color: var(--primary-button-color);
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 5px 10px 0;
+    background-color: none;
+    color: var(--color-white);
     padding: 16px;
     border: 2px solid var(--primary-button-color);
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .fileUpload {
     padding: 0.88em 1.5em;
+    background-color: none;
+    color: var(--primary-button-color);
+    padding: 16px;
+    border: 2px solid var(--primary-button-color);
 }
 
 button:hover, button[type="submit"]:hover {
@@ -465,48 +478,39 @@ button[disabled], button[disabled]:hover {
     appearance: none;
   }
 
-/* Alert banners */
-
 .alert {
-    padding: 30px;
-    margin-bottom: 12px;
-    font-size: var(--font-size);
-    font-weight: bold;
+    margin: 10px;
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
     text-align: center;
     z-index: 9999;
+    padding: 15px;
+    font-size: var(--alert-font-size);
+    color: var(--main-background-color);
+    font-weight: 600;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-    backdrop-filter: blur(var(--background-blur)) contrast(var(--background-blur-contrast));
-    -webkit-backdrop-filter: blur(var(--background-blur)) contrast(var(--background-blur-contrast));
+    border-radius: 4px;
 }
 
 .alert.show {
-    opacity: 1;
     transform: translateY(0);
 }
 
 .alert-banner-info {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: var(--info-alert-background-color);
 }
 
 .alert-banner-danger {
-    background-color: var(--color-red);
-    color: var(--color-white);
+    background-color: var(--danger-alert-background-color);
 }
 
 .alert-banner-success {
-    background-color: var(--color-green);
-    color: var(--color-white);
+    background-color: var(--success-alert-background-color);
 }
 
 .alert-banner-warning {
-    background-color: var(--color-orange);
-    color: var(--color-white);
+    background-color: var(--warning-alert-background-color);
 }
 
 /* Scroll to top button styles */
@@ -543,8 +547,23 @@ button[disabled], button[disabled]:hover {
     padding: 5px;
     transform: rotate(-135deg);
   }
+
+
+#blur-overlay {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: rgba(0,0,0, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
   
-  
+ .prevent-scroll {
+    position: fixed;
+    overflow: hidden;
+}
   
 /* Responsive element changes for menu */
 
@@ -565,35 +584,30 @@ button[disabled], button[disabled]:hover {
     }    
 
     .navbar ul {
-        padding-left: 0;
+        margin: 0 auto;
+        padding: 0;
     }   
 
     .nav-links {
+        padding: 15px;
         z-index: 999;
-        top: 0;
-        left: 0;
         position: absolute;
-        width: calc(100% - 80px);
-        justify-content: center;
-        align-items: center;
+        top: 80px;
+        left: calc(100vw / 2);
+        width: calc(90%);
         margin-left: -100%;
-        transition: all 0.5s ease;
+        transform: translate(-50%, 0);
         background-color: var(--mobile-menu-background-color);
-        backdrop-filter: blur(var(--background-blur)) contrast(var(--background-blur-contrast));
-        -webkit-backdrop-filter: blur(var(--background-blur)) contrast(var(--background-blur-contrast));
+        border-radius: 6px;
+        box-shadow: var(--menu-shadow);
     }
 
     .nav-links a {
-        padding: 20px;
+        border-radius: 6px;
     }
 
     .nav-links.mobile-menu {
         margin-left: 0;
-    }
-
-    .nav-links li a:hover {
-        color: var(--mobile-menu-link-hover-color);
-        background-color: var(--mobile-menu-link-background-hover-color);
     }
 
     .nav-links ul {
@@ -601,8 +615,8 @@ button[disabled], button[disabled]:hover {
     }
 
     .nav-links li a {
-        color: var(--mobile-menu-link-color);
-        padding-left: 30px;
+        font-size:var(--mobile-menu-link-font-size);
+        padding: 15px;
         display: block;
     }
 }
