@@ -19,16 +19,31 @@ output.value = '';
 downloadButton.disabled = true;
 copyButton.disabled = true;
 
+// Alert banner function
+let alertTimerId = null;
+
 function showAlertBanner(message, type) {
-    const alertBanner = document.getElementById('alert-banner');
-    alertBanner.textContent = message;
-    alertBanner.classList.remove('hidden');
-    alertBanner.classList.add(type, 'show');
-    setTimeout(() => {
-        alertBanner.classList.remove(type, 'show');
-        alertBanner.classList.add('hidden');
-    }, 2000);
+  const alertBanner = document.getElementById('alert-banner');
+  alertBanner.textContent = message;
+  
+  // Remove all existing classes from the alert banner
+  alertBanner.className = '';
+
+  // Cancel any previously scheduled alerts
+  clearTimeout(alertTimerId);
+
+  // Add the new classes to show the alert
+  alertBanner.classList.add('alert', type, 'show');
+
+  // Set a timer to hide the alert after 2 seconds
+  alertTimerId = setTimeout(() => {
+    alertBanner.classList.remove('show');
+    alertTimerId = setTimeout(() => {
+      alertBanner.classList.add('hidden');
+    }, 500);
+  }, 2000);
 }
+
 
 function sanitizeFileName(filename) {
     const nameWithoutExtension = filename.split('.').slice(0, -1).join('.');
