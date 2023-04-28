@@ -13,8 +13,9 @@
     --color-gray-3: #cccccc;
     --color-gray-4: #999999;
     --color-gray-5: #666666;
-    --color-gray-6: #222222;
-    --color-gray-7: #111111;
+    --color-gray-6: #333333;
+    --color-gray-7: #222222;
+    --color-gray-8: #111111;
     /* Main buttons used */
     --primary-button-color: #007bff;
     --primary-button-color-hover: #0056b3; 
@@ -23,7 +24,7 @@
     --background-color: #f0f0f0;
     --main-background-color: #ffffff;
     --branding-color: #222222;
-    --padding: 15px;
+    --padding: 16px;
     --font-family: Arial, Helvetica, sans-serif;
     --font-color: var(--color-gray-4);
     --font-size: 1em;
@@ -37,7 +38,7 @@
     --heading-font-family: Arial, Helvetica, sans-serif;
     --heading-color: var(--color-gray-6);
     --heading-line-height: 1.2em;
-    --alert-font-size: 1.2em;
+    --alert-font-size: 1em;
     --info-alert-background-color: var(--color-cyan);
     --danger-alert-background-color: var(--color-red);
     --success-alert-background-color: var(--color-green);
@@ -61,10 +62,11 @@
 [data-theme="dark"] {
     --background-color: #1c1c1c;
     --main-background-color: #222222;
-    --branding-color: rgb(255, 255, 255);
+    --branding-color: #ffffff;
+    --font-color: var(--color-gray-5);
     --link-font-color: var(--color-gray-3);
     --link-hover-color: var(--branding-color);
-    --heading-color: #CCCCCC;
+    --heading-color: var(--color-gray-3);
     --heading-line-height: 1.2em;
     --menu-link-color: var(--branding-color);
     --menu-link-hover-color: var(--font-color);
@@ -72,10 +74,10 @@
     --background-blur: 8px;
     --background-blur-contrast: 80%;
     --code-font-color: var(--color-gray-3);
-    --code-background-color: var(--color-gray-7);
+    --code-background-color: var(--color-gray-8);
     --form-input-border: none;
     --form-input-font-color: var(--color-gray-3);
-    --form-input-background-color: var(--color-gray-7);
+    --form-input-background-color: var(--color-gray-8);
     --form-placeholder-color: var(--font-color);
 }
 
@@ -125,7 +127,7 @@ pre, code {
 }
 
 pre {
-    margin: 15px auto;
+    margin: 16px auto;
     display: block;
     padding: var(--padding);
     overflow: auto;
@@ -206,21 +208,34 @@ a:hover {
 }
 
 #branding {
+    font-size: 1.4em;
+    font-weight: normal;
+    color: var(--branding-color);
+    z-index: 199;
+    margin-left: 16px;
     display: inline-block;
-    width: 180px;
-    padding-top: 5px;
+    letter-spacing: -1px;
+}
+
+#branding a, #branding:active, #branding:hover, #branding:visited {
+    text-decoration: none;
+    color: var(--branding-color);
+}
+
+#branding img {
+    height: 20px;
 }
 
 
 ul {
     list-style: disc;
-    padding-left: 25px;
+    padding-left: 24px;
 }
 
 ol {
     list-style: none;
     counter-reset: cupcake;
-    padding-left: 15px;
+    padding-left: 16px;
   }
 
   ol li {
@@ -231,17 +246,13 @@ ol {
     content: counters(cupcake, ".") ". ";
 }
 
+
+.bold {
+    font-weight: 600;
+}
+
 .hidden {
     display: none;
-}
-
-/* Original SVG must be black for filter to apply correctly. */
-.svg-filter-light {
-    filter: invert(100%) sepia(1%) saturate(5%) hue-rotate(13deg) brightness(102%) contrast(102%);
-}
-
-.svg-filter-dark {
-    filter: invert(8%) sepia(8%) saturate(0%) hue-rotate(182deg) brightness(108%) contrast(91%);
 }
 
 /* Nav menu elements */
@@ -252,13 +263,14 @@ ol {
     display: flex;
     max-width: 1200px;
     overflow: hidden;
+    min-height: 40px;
 }
 
 .navbar li a {
     color: var(--menu-link-color);
     display: flex;
     text-decoration: none;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 16px 5px 16px;
 }
 
 .nav-links li a:hover {
@@ -279,22 +291,22 @@ ol {
     z-index: 199;
     display: none;
     position: absolute;
-    right: 25px;
+    right: 24px;
 }
 
 
 /* Menu Hamburger Icon */
 
 .barTop, .barMiddle, .barBottom {
-    width: 29px;
-    height: 3px;
+    width: 24px;
+    height: 2px;
     background-color: var(--branding-color);
     margin: 4px 0;
     transition: 0.4s;
 }
 
 .change .barTop {
-    transform: translate(0, 7px) rotate(-45deg);
+    transform: translate(0, 6px) rotate(-45deg);
 }
   
 .change .barMiddle {
@@ -302,7 +314,7 @@ ol {
 }
   
 .change .barBottom {
-    transform: translate(0, -7px) rotate(45deg);
+    transform: translate(0, -6px) rotate(45deg);
 }
 
 /* Form elements reset */
@@ -355,7 +367,7 @@ textarea {
     background-color: var(--form-input-background-color);
     border: var(--form-input-border);
     border-radius: 3px;
-    padding: 1em 2em 1em 1em;
+    padding: 12px 16px;
 }
 
 input[type="file"] {
@@ -384,7 +396,7 @@ select {
     background-color: var(--form-input-background-color);
     border: var(--form-input-border);
     border-radius: 3px;
-    padding: 1em 2em 1em 1em;
+    padding: 12px 16px;
 }
 
 select::-ms-expand {
@@ -396,56 +408,42 @@ label {
     margin: 10px 0;
 }
 
-.btn-primary, button, button[type="submit"] {
+.button, button, button[type="submit"] {
+    margin: 8px 4px 8px 0;
     font-weight: 600;
     text-align: center;
     display: inline-block;
-    margin: 10px 5px 10px 0;
     background-color: var(--primary-button-color);
     color: var(--color-white);
-    padding: 18px;
+    padding: 16px 24px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-
-.fileUpload {
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    margin: 10px 5px 10px 0;
-    background-color: none;
-    color: var(--color-white);
-    padding: 16px;
-    border: 2px solid var(--primary-button-color);
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.fileUpload {
-    padding: 0.88em 1.5em;
-    background-color: none;
-    color: var(--primary-button-color);
-    padding: 16px;
-    border: 2px solid var(--primary-button-color);
-}
-
-button:hover, button[type="submit"]:hover {
+.button:hover, button:hover {
     background-color: var(--primary-button-color-hover);
 }
 
-button:active, button[type="submit"]:active {
+.button:active, button:active {
     background-color: var(--primary-button-color-active);
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.125);
 }
 
-button[disabled], button[disabled]:hover {
+.button[disabled], button[disabled], button[disabled]:hover {
     background-color: var(--color-gray-4);
     color: var(--color-white);
     opacity: 0.65;
     cursor: not-allowed;
 }
+
+.btn-outline, .btn-outline:hover, .btn-outline:hover {
+    background: none;
+    color: var(--primary-button-color);
+    border: 2px solid var(--primary-button-color);
+    padding: 12px 20px;
+}
+
 
 #search-box {
     margin: 0 auto;
@@ -479,22 +477,27 @@ button[disabled], button[disabled]:hover {
   }
 
 .alert {
-    margin: 10px;
+    opacity: 0;
+    margin: 12px;
     position: fixed;
     left: 0;
     right: 0;
     text-align: center;
     z-index: 9999;
-    padding: 15px;
+    padding: 16px;
     font-size: var(--alert-font-size);
     color: var(--main-background-color);
     font-weight: 600;
-    transform: translateY(-100%);
-    border-radius: 4px;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
 }
 
 .alert.show {
-    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    /* transform: translateY(0); */
 }
 
 .alert-banner-info {
@@ -542,9 +545,9 @@ button[disabled], button[disabled]:hover {
   
   .scroll-to-top-arrow {
     border: solid var(--color-gray-5);
-    border-width: 0 6px 6px 0;
+    border-width: 0 4px 4px 0;
     display: inline-block;
-    padding: 5px;
+    padding: 6px;
     transform: rotate(-135deg);
   }
 
@@ -589,7 +592,7 @@ button[disabled], button[disabled]:hover {
     }   
 
     .nav-links {
-        padding: 15px;
+        padding: 16px;
         z-index: 999;
         position: absolute;
         top: 80px;
@@ -616,7 +619,7 @@ button[disabled], button[disabled]:hover {
 
     .nav-links li a {
         font-size:var(--mobile-menu-link-font-size);
-        padding: 15px;
+        padding: 16px;
         display: block;
     }
 }
@@ -627,17 +630,9 @@ button[disabled], button[disabled]:hover {
     
     /* Responsive form elements */
 
-    .btn-primary, button, button[type="submit"] {
+    .button, button, button[type="submit"] {
+        margin: 12px 0;
         display: block;
-        margin: 15px 0 0 0;
-        width: 100%;
-        padding: 1.5em 2em;
-    }
-
-    .fileUpload {
-        display: block;
-        margin: 15px 0 0 0;
-        padding: 1.38em 5em;
         width: 100%;
     }
 
