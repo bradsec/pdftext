@@ -1,0 +1,29 @@
+/* Custom for PDF to text */
+
+#countWrap {
+    margin: 0 auto;
+    font-family: Monaco, "Courier New", Courier, monospace;
+    text-align: center;
+}
+
+#wordCount, #charCount {
+    visibility: hidden;
+    text-align: center;
+    display: inline-block;
+    margin: 10px auto;
+}
+
+#fileName {
+    font-family: var(--code-font-family);
+    font-weight: 600;
+    visibility: hidden;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+textarea {
+    font-family: var(--code-font-family);
+}

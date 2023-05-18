@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <meta name="description" content="Client side browser tool to extract text from a PDF file using PDF.js" />
     <meta name="author" content="BRADSEC" />
+    <meta name="repo" content="github.com/bradsec/pdftotext" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="theme-color" content="#202020" />
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bsbase-min.css">
+    <link rel="stylesheet" href="custom.css">
     <title>PDF to Text</title>
 </head>
 
 <body>
 
-    <div id="alert-banner" class="alert hidden"></div>
     <div class="wrapper">
+        <div id="alert-banner" class="alert hidden"></div>
+        <header id="header">
+            <nav class="navbar">
+                <div id="branding"><a href="https://github.com/bradsec/pdftotext"><span class="bold">PDF</span>To<span class="bold">Text</span></a></div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="#" id="theme-switcher">DARK</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         <main id="main">
-        <h1>PDF to Text</h1>
-        <h2>Client side browser tool to extract text from a PDF file using PDF.js</h2>
+        <h1>Client side browser tool to extract text from a PDF file using PDF.js</h1>
         <p>Some cleanup will be performed on the extracted text including removing non-standard characters and extra spaces to provide a more readable output. You can download the extracted text to a (.txt) text file or copy it to your clipboard for further use. Your PDF file is processed locally on your device by your browser using <a href="https://github.com/mozilla/pdf.js/" target="_blank">Mozilla PDF.js</a>, and no data is transferred or stored elsewhere.</p>
         <label for="pdfFile" class="button btn-outline">Select PDF file</label>
         <input type="file" id="pdfFile" accept=".pdf">
@@ -31,12 +42,11 @@
         <textarea id="output" rows="15" cols="80" readonly></textarea>
     </main>
     <footer id="footer">
-        <span id="footer-copyright"></span> | <a href="#" id="theme-switcher">SWITCH-THEME</a>
-        <div id="scrollToTop" class="scroll-to-top hidden" aria-label="Scroll to top">
-           <div class="scroll-to-top-arrow"></div>
-       </div>
+        <div class="footer-content"><span id="footer-repo"></span></div>             
+         <div class="footer-bottom"><span id="footer-copyright"></span></div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.5.141/pdf.min.js"></script>
-    <script src="script.js"></script>
+    <script src="bsbase-min.js"></script>
+    <script src="custom.js"></script>
 </body>
 </html>
