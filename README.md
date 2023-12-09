@@ -1,6 +1,19 @@
-# PDF to text
-### Client side browser tool to extract text from a PDF file using PDF.js
+# PDFText
 
-Some cleanup will be performed on the extracted text including removing non-standard characters and extra spaces to provide a more readable output. You can download the extracted text to a (.txt) text file or copy it to your clipboard for further use. Your PDF file is processed locally on your device by your browser using <a href="https://github.com/mozilla/pdf.js/" target="_blank">Mozilla PDF.js</a>, and no data is transferred or stored elsewhere.
+PDFText is a web application which provides a client-side solution to extract text from PDF files. It uses [PDF.js](https://mozilla.github.io/pdf.js/) for rendering PDF documents and offers functionalities like viewing the extracted text, downloading it as a text file, and copying it to the clipboard.
 
-### Try @ <a href="https://bradsec.github.io/pdftotext/">https://bradsec.github.io/pdftotext/</a>
+### Try it out at [pdftext.me](https://pdftext.me)
+
+## Features
+- **PDF Upload**: Users can upload a PDF file to extract text.
+- **Text Display**: Extracted text is displayed in the application interface.
+- **Download Extracted Text**: Users can download the extracted text as a `.txt` file.
+- **Copy to Clipboard**: The extracted text can be copied directly to the clipboard.
+- **Alert Notifications**: Provides feedback on successful operations or errors.
+
+## Known Limitations
+
+- Will work on standard printed text based PDF documents. It does not incorporate OCR for handwritting recognition.
+
+## Credits
+- **PDF.js** by Mozilla | [Apache 2.0 License](https://github.com/mozilla/pdf.js/blob/master/LICENSE)
