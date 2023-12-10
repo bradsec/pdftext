@@ -1,0 +1,155 @@
+/* Custom CSS Reset */
+/* Modified 10 DEC 2023 */
+
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base Styles */
+html {
+  line-height: 1.15; /* A normalized line-height */
+  -webkit-text-size-adjust: 100%; /* Prevent adjustments of text size in Safari */
+  -moz-text-size-adjust: none; /* Prevent font size inflation in Firefox */
+  text-size-adjust: none; /* Prevent font size inflation in other browsers */
+}
+
+body {
+  margin: 0; /* Remove default margin */
+  min-height: 100vh; /* Ensure at least the viewport height */
+  font-family: inherit; /* Use a font-family consistent with the rest of the design */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering in MacOS browsers */
+  color: black; /* Set default text color */
+  background: white; /* Set default background */
+  line-height: 1.5; /* Set a more legible line-height */
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0; /* Remove default margin */
+  font-size: 1em; /* Normalize font size */
+  font-weight: normal; /* Normalize font weight */
+  line-height: 1.1; /* Set a shorter line-height for headings */
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p,
+a,
+ul,
+ol,
+li,
+blockquote,
+article,
+main,
+aside,
+footer,
+header,
+section {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  font: inherit; /* Inherit font styles */
+  font-size: 100%; /* Ensure consistent font size */
+  vertical-align: baseline; /* Align elements to the baseline */
+}
+
+/* Media Defaults */
+img {
+  display: block; /* Avoid inline gaps */
+  max-width: 100%; /* Prevent overflowing */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* List Styles */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none; /* Remove default list styling */
+}
+
+/* Button and Input Styles */
+button,
+input,
+textarea,
+select {
+  border: none; /* Remove default border */
+  background-color: transparent; /* Remove default background */
+  padding: 0; /* Remove default padding */
+  font: inherit; /* Inherit font styles */
+}
+
+a {
+  color: inherit; /* Inherit link color */
+  text-decoration: none; /* Remove underline */
+  text-decoration-skip-ink: auto; /* Avoid text decoration interfering with text */
+}
+
+button {
+  cursor: pointer; /* Indicate clickable items */
+}
+
+/* Additional Resets */
+table {
+  border-collapse: collapse; /* Prevent double borders in tables */
+  border-spacing: 0; /* Remove default border spacing */
+}
+
+/* Override browser default styles */
+::-moz-selection,
+::selection {
+  background-color: #b3d4fc; /* Set selection background color */
+  color: #000000; /* Set selection text color */
+  text-shadow: none; /* Remove text shadow on selection */
+}
+
+/* Additional Form Element Styles */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Extra scroll margin for anchored elements */
+:target {
+  scroll-margin-block: 5ex;
+}

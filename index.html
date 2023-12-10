@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <title>PDFText.me</title>
+    <link href="css/reset.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -19,35 +20,64 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-    <link href="css/pdftext.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
   </head>
 </head>
-
 <body>
-
     <div class="wrapper">
-        <div id="alert-banner" class="alert hidden"></div>
-        <div class="hero">
-            <div class="branding">PDF<span class="bold">Text</span>.me</div>
-            <p>
-              Convert standard PDF documents to text, all within your
-              browser.
-            </p>
+        <header>
+          <div class="header-top">
+          <div class="branding">PDF<span>Text</span>.me</div>
+          <div id="theme-switcher">
+            <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <circle class="sun" cx="12" cy="12" r="6" fill="currentColor" />
+              <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+              </g>
+            </svg>
+            
+            <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <mask id="moon-mask" class="moon">
+                <rect x="0" y="0" width="100%" height="100%" fill="currentColor" />
+                <circle cx="12" cy="10" r="6" fill="white" />
+              </mask>
+              <circle class="moon" cx="12" cy="12" r="6" fill="currentColor" />
+            </svg>  
           </div>
-        <label for="pdfFile" class="button btn-outline">Select PDF file</label>
+        </div>
+          <div class="hero">
+            Convert standard PDF documents to text, all within your browser.
+        </div>
+  
+        </header>
+        <main>
+        <label for="pdfFile" class="button">Select PDF file</label>
         <input type="file" id="pdfFile" accept=".pdf">
         <button id="downloadButton" disabled>Download as (.txt) text file</button>
         <button id="copyButton" disabled>Copy text to clipboard</button>
+        <div id="flash-banner" class="flash-banner-container"></div>
         <div id="fileName"></div>
         <div id="countWrap">
         <div id="wordCount">Words [<span id="wordCountNum">0</span>]</div>
         <div id="charCount">Characters [<span id="charCountNum">0</span>]</div>
         </div>
         <textarea id="output" rows="15" cols="80" readonly></textarea>
-        <p class="light-gray">
+      </main>
+      <footer>
+        <p>
             Some cleanup will be performed on the extracted text including removing non-standard characters and extra spaces to provide a more readable output. The PDF file is processed locally on your device by your browser using <a href="https://github.com/mozilla/pdf.js/" target="_blank">Mozilla PDF.js</a>.
           </p>
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.js"></script>
     <script src="js/pdftext.js"></script>
+    <script src="js/theme.js"></script>
+    </div>
 </body>
 </html>

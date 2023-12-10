@@ -22,29 +22,6 @@ copyButton.disabled = true;
 // Alert banner function
 let alertTimerId = null;
 
-function showAlertBanner(message, type) {
-  const alertBanner = document.getElementById('alert-banner');
-  alertBanner.textContent = message;
-  
-  // Remove all existing classes from the alert banner
-  alertBanner.className = '';
-
-  // Cancel any previously scheduled alerts
-  clearTimeout(alertTimerId);
-
-  // Add the new classes to show the alert
-  alertBanner.classList.add('alert', type, 'show');
-
-  // Set a timer to hide the alert after 2 seconds
-  alertTimerId = setTimeout(() => {
-    alertBanner.classList.remove('show');
-    alertTimerId = setTimeout(() => {
-      alertBanner.classList.add('hidden');
-    }, 500);
-  }, 2000);
-}
-
-
 function sanitizeFileName(filename) {
   const nameWithoutExtension = filename.split('.').slice(0, -1).join('.');
   const sanitized = nameWithoutExtension
@@ -62,7 +39,7 @@ pdfFile.addEventListener('change', async (event) => {
         try {
             pdfFileLabel.textContent = 'Change PDF file';
             fileName.textContent = file.name;
-            showAlertBanner('Loading...', 'alert-banner-info');
+            displayFlashMessage('Loading...', 'info');
             downloadButton.disabled = true;
             copyButton.disabled = true;
             sanitizedFileName = sanitizeFileName(file.name);
@@ -85,9 +62,9 @@ pdfFile.addEventListener('change', async (event) => {
             fileName.style.visibility='visible';
             wordCount.style.visibility='visible';
             charCount.style.visibility='visible';
-            showAlertBanner('File loaded successfully!', 'alert-banner-success');
+            displayFlashMessage('File loaded successfully!', 'success');
         } catch (error) {
-            showAlertBanner('Error: Failed to load or process the PDF file.', 'alert-banner-danger');
+            displayFlashMessage('Error: Failed to load or process the PDF file.', 'danger');
             pdfFileLabel.textContent = 'Select PDF File';
             fileName.textContent = '';
             output.value = '';
@@ -118,7 +95,7 @@ downloadButton.addEventListener('click', () => {
     link.download = sanitizedFileName + '-extracted-text.txt';
     link.click();
     URL.revokeObjectURL(url);
-    showAlertBanner('File downloaded successfully!', 'alert-banner-success');
+    displayFlashMessage('File downloaded successfully!', 'success');
     downloadButton.disabled = true;
 });
 
@@ -127,11 +104,11 @@ copyButton.addEventListener('click', async () => {
       output.focus();
       output.select();
       await navigator.clipboard.writeText(output.value);
-      showAlertBanner('Text copied to clipboard!', 'alert-banner-success');
+      displayFlashMessage('Text copied to clipboard!', 'info');
     } catch (err) {
       // Fallback for older browsers
       output.select();
       document.execCommand('copy');
-      showAlertBanner('Text copied to clipboard!', 'alert-banner-success');
+      displayFlashMessage('Text copied to clipboard!', 'info');
     }
   });
