@@ -2,8 +2,6 @@
 
 PDFText is a web application which provides a client-side solution to extract text from PDF files. It uses [PDF.js](https://mozilla.github.io/pdf.js/) for rendering PDF documents and offers functionalities like viewing the extracted text, downloading it as a text file, and copying it to the clipboard.
 
-### Try it out at [pdftext.me](https://pdftext.me)
-
 ## Features
 - **PDF Upload**: Users can upload a PDF file to extract text.
 - **Text Display**: Extracted text is displayed in the application interface.
